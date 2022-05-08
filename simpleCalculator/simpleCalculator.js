@@ -30,6 +30,9 @@ export default class Calculator extends LightningElement {
         }
     }
     addition(){
+        console.log(this.num1);
+        console.log(this.num2);
+        
         if(this.num2 === null || this.num2 === ''){
             
             this.result = parseFloat(this.num1);
