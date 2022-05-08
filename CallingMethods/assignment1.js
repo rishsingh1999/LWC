@@ -7,37 +7,34 @@ export default class CallingMethodByPromises extends LightningElement {
     result;
     result2;
     result3;
-    connectedCallback(){
-        this.invokeApexClass();
-    }
-    invokeApexClass(){
-        callMethod1().then(result => 
-            {
-            console.log('Method 1 result '+ result);
-            this.result = 'Method 1 result '+ result;
+    temp;
 
-            callMethod2(
-                {
-                message1: result
-            }).then(result2 => 
-                {
-                console.log('Method 2 result '+ result2);
-                this.result2 = 'Method 1 result '+result +result2;
-                callMethod3({
-                    message2:result2
-                }).then(result3 => {
-                    console.log('Method 3 result '+result3);
-                    this.result3 = 'Method 1 result '+result +result2+ result3;
+    firstMethod(){
+        setTimeout(()=>{
+        callMethod1().then(result => {
+            this.temp = result;
+            this.result1 = "Method1 result:" + ' '+  this.temp;
+            
+            setTimeout(() => {
+            callMethod2().then(result => {
+                this.temp = this.temp + ' ' + result;                
+                this.result2 = "Method2 result:" +' ' + this.temp;
 
-                }).catch(error => {
-                    console.log('Error'+error);
-                });
-            }).catch(error => {
-                console.log('Error'+error);
-            });
-        }).catch(error => {
-            console.log('Error'+error);
-        });
-
+                setTimeout(() => {
+                callMethod3().then(result => {
+                    this.temp = this.temp +' ' + result;
+                    this.result3 = "Method3 result:" + ' ' + this.temp;
+                })
+                .catch(_error => {
+                    console.log("error occured");
+                })},6000)
+            })
+            .catch(_error => {
+                console.log("error occured");
+            })},4000)
+        })
+        .catch(_error => {
+            console.log("error occured");
+        })},2000);
     }
 }
