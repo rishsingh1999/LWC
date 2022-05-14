@@ -1,0 +1,7 @@
+@import 'c/cssLibrary';
+
+/* Other style rules for contactsViewer component */
+c-contact-tile {
+    margin: var(--lwc-borderWidthThin, 1px) 0;
+    width: '20 px';
+}
