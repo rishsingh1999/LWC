@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Getting Data From Child">
+      <p class="slds-p-horizontal_small">
+
+        <lightning-progress-bar
+          value={progressValue}
+          size="large"
+          variant="circular"
+        >
+        </lightning-progress-bar>
+        <br>
+        <c-child-lwc
+          onprogressvaluechange={hanldeProgressValueChange}
+        >
+        </c-child-lwc>
+        
+      </p>
+    </lightning-card>
+  </template>
