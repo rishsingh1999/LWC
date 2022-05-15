@@ -5,18 +5,17 @@ import callMethod3 from '@salesforce/apex/CallingMethods.callMethod3';
 
 export default class CallingMethodByPromises extends LightningElement {
     result;
+    result1;
     result2;
     result3;
     temp;
-
+    
     firstMethod(){
-        setTimeout(()=>{
         callMethod1().then(result => {
             this.temp = result;
             this.result1 = "Method1 result:" + ' '+  this.temp;
-            
-            setTimeout(() => {
-            callMethod2().then(result => {
+            setTimeout(()=>{
+                callMethod2().then(result => {
                 this.temp = this.temp + ' ' + result;                
                 this.result2 = "Method2 result:" +' ' + this.temp;
 
@@ -24,17 +23,17 @@ export default class CallingMethodByPromises extends LightningElement {
                 callMethod3().then(result => {
                     this.temp = this.temp +' ' + result;
                     this.result3 = "Method3 result:" + ' ' + this.temp;
-                })
-                .catch(_error => {
+                })},3000)
+                .catch(error => {
                     console.log("error occured");
-                })},6000)
-            })
-            .catch(_error => {
+                })
+            })},3000)
+            .catch(error => {
                 console.log("error occured");
-            })},4000)
+            })
         })
-        .catch(_error => {
+        .catch(error => {
             console.log("error occured");
-        })},2000);
+        })   
     }
 }
