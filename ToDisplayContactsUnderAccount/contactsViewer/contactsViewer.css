@@ -3,5 +3,13 @@
 /* Other style rules for contactsViewer component */
 c-contact-tile {
     margin: var(--lwc-borderWidthThin, 1px) 0;
-    width: '20 px';
+}
+div.LARGE {
+    width: fit-content;
+}
+div.SMALL {
+    width: fit-content;
+}
+div.MEDIUM {
+    width: fit-content;
 }
