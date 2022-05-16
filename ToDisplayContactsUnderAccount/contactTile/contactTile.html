@@ -2,8 +2,8 @@
         <template if:true={contact}>
             
             <lightning-layout vertical-align="center">            
-                <lightning-layout-item class="slds-p-left_small">                    
-                    <p>{contact.Name}</p>
+                <lightning-layout-item padding="around-small">                    
+                    <p>{contact.Name} </p>
                     <p>{contact.Title}</p>
                     <p>
                         <lightning-formatted-phone
@@ -11,7 +11,7 @@
                         ></lightning-formatted-phone>
                     </p>
                 </lightning-layout-item>
-                <lightning-button variant="brand" label="Record Page" style="width:8rem" onclick={navigateToContacts} 
+                <lightning-button variant="brand" label="Record" style="width:fit-content" onclick={navigateToContacts} 
                 ></lightning-button>
             </lightning-layout>
         </template>
