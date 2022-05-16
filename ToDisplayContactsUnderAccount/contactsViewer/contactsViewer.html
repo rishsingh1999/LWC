@@ -10,13 +10,17 @@
             ></lightning-input>
         </div>
         <template if:true={contacts.data}>
-            <template for:each={contacts.data} for:item="contact">                
+            <div class={flexipageRegionWidth} >
+                <div class="slds-card__body slds-wrap slds-grid" >
+            <template for:each={contacts.data} for:item="contact">  
                 <c-contact-tile
                     class="slds-show slds-is-relative"
                     key={contact.Id}
                     contact={contact}
                 ></c-contact-tile>
             </template>
+            </div>
+            </div>
         </template>     
         <template if:true={contacts.error}>
             <c-error-panel errors={contacts.error}></c-error-panel>
