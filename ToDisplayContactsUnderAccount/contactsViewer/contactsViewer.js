@@ -1,6 +1,6 @@
 import { api, LightningElement,track, wire} from 'lwc';
 import findContacts from '@salesforce/apex/ContactFinder.findContacts';
-const DELAY = 150;
+const DELAY = 1500;
 export default class ContactsViewer extends LightningElement {
     @api recordId;
     @track contacts;
