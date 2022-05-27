@@ -5,22 +5,16 @@ export default class Calculator extends LightningElement {
     @track result;
     @track num1;
     @track num2;
-    showErrorToast(){
+    
+    showErrorToast(errorMessage){
         const event = new ShowToastEvent({
             title : 'ERROR',
-            message : 'Denominator can not be 0.',
+            message : errorMessage,
             variant : 'error',
         })
         this.dispatchEvent(event);
     }
-    showErrorToast1(){
-        const event = new ShowToastEvent({
-            title : 'ERROR',
-            message : 'Result can not be negative.',
-            variant : 'error',
-        })
-        this.dispatchEvent(event);
-    }
+    
     onInputChangeHandler(event) {
         const name = event.target.name;
         if (name === 'Number1') {
@@ -43,7 +37,7 @@ export default class Calculator extends LightningElement {
     }
     subtraction() {
         if(parseFloat(this.num1) < parseFloat(this.num2)){
-            this.showErrorToast1();
+            this.showErrorToast('Result can not be negative');
             //alert('Result can not be negative.');
             this.result = '';
         }
@@ -56,7 +50,8 @@ export default class Calculator extends LightningElement {
     }    
     division() {        
         if(parseFloat(this.num2) === 0) {
-            this.showErrorToast();
+            this.showErrorToast('Denominator can not be 0');
+            
             //alert('Denominator can not be 0.');
             this.result = '';
         } else {
