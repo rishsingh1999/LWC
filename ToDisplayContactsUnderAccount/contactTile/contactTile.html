@@ -1,19 +1,16 @@
 <template>
-        <template if:true={contact}>
-            
-            <lightning-layout vertical-align="center">            
-                <lightning-layout-item padding="around-small">                    
-                    <p>{contact.Name} </p>
-                    <p>{contact.Title}</p>
-                    <p>
-                        <lightning-formatted-phone
-                            value={contact.Phone}
-                        ></lightning-formatted-phone>
-                    </p>
-                </lightning-layout-item>
-                <lightning-button variant="brand" label="Record" style="width:fit-content" onclick={navigateToContacts} 
-                ></lightning-button>
-            </lightning-layout>
-        </template>
-        <template if:false={contact}><p>No contact data available.</p></template>
+    <template if:true={contact}>
+        <div class="demo-only" style="width:5rem">
+            <lightning-layout-item class="slds-var-p-left_small">
+                <p>{contact.Name}</p>
+                <p>{contact.Title}</p>
+                <p>
+                    <lightning-formatted-phone
+                        value={contact.Phone}
+                    ></lightning-formatted-phone>
+                </p>
+            </lightning-layout-item>
+        </div>
+    </template>
+    <template if:false={contact}><p>No contact data available.</p></template>
 </template>
