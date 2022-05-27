@@ -1,25 +1,25 @@
 <template>
     <lightning-card title="Simple Calculator LWC" icon-name="standard:number_input" >
-        <div class="slds-var-p-around_smallmall">
+        <div class="slds-var-p-around_small	">
             <lightning-input label="First Number" step = ".01" type="number" name="Number1" value={num1}
                 onchange={onInputChangeHandler} required></lightning-input><br>
             <lightning-input label="Second Number" step = ".01" type="number" name="Number2" value={num2}
                 onchange={onInputChangeHandler} required></lightning-input><br>
             <lightning-layout horizontal-align="space">
-                <lightning-layout-item padding="around-small">
+                <div class="slds-var-p-left_small">
                     <lightning-button label="Add" variant="Brand" onclick={addition}></lightning-button>
-                </lightning-layout-item>
-                <lightning-layout-item padding="around-small">
-                    <lightning-button label="Subtract" variant="Brand" onclick={subtraction}></lightning-button>
-                </lightning-layout-item>
-                <lightning-layout-item padding="around-small">
+                </div>
+                <div class="slds-p-left_small">
+                    <lightning-button label="Subtract" variant="Brand" onclick={subtraction}></lightning-button>                
+                </div>
+                <div class="slds-p-left_small">
                     <lightning-button label="Multiply" variant="Brand" onclick={multiplication}></lightning-button>
-                </lightning-layout-item>
-                <lightning-layout-item padding="around-small">
+                </div>
+                <div class="slds-p-left_small">
                     <lightning-button label="Divide" variant="Brand" onclick={division}></lightning-button>
-                </lightning-layout-item>
-            </lightning-layout>
-            Result = {result}
+                </div>
+            </lightning-layout><br></br>
+            <div class="slds-p-left_small">Result = {result}</div>
         </div> 
     </lightning-card>
 </template>
